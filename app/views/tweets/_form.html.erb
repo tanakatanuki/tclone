@@ -1,0 +1,35 @@
+<table class="table">    
+    <%= form_with(model: @tweet, local: true, url: choose_new_or_edit) do |form| %>
+        <!--========================================
+        エラー表示
+        ======================================== -->
+        <% if @tweet.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= @tweet.errors.count %>件のエラーがあります</h2>
+            
+            <ul>
+                <% @tweet.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+        <% end %>
+        
+        <!--========================================
+        入力部分
+        ======================================== -->
+        <div class="form-group">
+            <%= form.label :"本文" , class: "control-label" %>
+            <%= form.text_field :content, class: "form-control" %>
+        </div>
+        
+        <!--<%= form.submit "投稿する", type: "button", class:"btn btn-active" %>-->
+        <%= form.submit "投稿する" %>
+    <% end %>
+</table>
+
+<table class="table">
+    <tr>
+        <td><%= link_to "つぶやき一覧に戻る", tweets_path %></td>
+    </tr>
+</table>

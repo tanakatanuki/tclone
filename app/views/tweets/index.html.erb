@@ -36,14 +36,11 @@
       </tr>
       <tr class="active">
         <td>
-          <!--<button type="button" class="btn btn-info">-->
-          <!--  <%= link_to "編集", edit_tweet_path(tweet.id) %>-->
-          <!--  </button>-->
-            <%= link_to "編集", edit_tweet_path(tweet.id) %>
-          <button type="button" class="btn btn-warning">
-            <%= link_to "削除", tweet_path(tweet.id), method: :delete,
+            <%= link_to "編集", edit_tweet_path(tweet.id), class: "btn btn-info" %>
+            <%= link_to "削除", tweet_path(tweet.id),
+                              class: "btn btn-warning",
+                              method: :delete,
                               data: {confirm: "本当に削除してもいいですか"} %>
-          </button>
           </td>
       </tr>
     <% end %>
